@@ -7,7 +7,6 @@ import java.net.UnknownHostException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-
 public class Main {
 	private static List<String> listSocket = new LinkedList<>();
 	private static Lamport obj;
