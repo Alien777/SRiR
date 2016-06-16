@@ -1,4 +1,4 @@
-#BookStore Robot
+#Lamport project
 
 ##Project can be downloaded from
 git@github.com:Alien777/SRiR.git  
