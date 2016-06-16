@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="rest.ApplicationConfig" project="rest" 
     file="/rest/src/rest/ApplicationConfig.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="540" y="141"/>    
+    <position height="-1" width="-1" x="576" y="125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="rest.LamportResource" project="rest" file="/rest/src/rest/LamportResource.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="623" y="362"/>    
+    <position height="-1" width="-1" x="619" y="344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="rest.NetClientPost" project="rest" file="/rest/src/rest/NetClientPost.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="573" y="567"/>    
+    <position height="-1" width="-1" x="549" y="544"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
