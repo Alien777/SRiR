@@ -19,12 +19,30 @@ public class Main {
 	private static Lamport obj = new Lamport();
 
 	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException {
-		listSocket.add("192.168.1.191");
-		System.setProperty("java.rmi.server.hostname", "192.168.1.191");
+		listSocket.add("localhost");
+		System.setProperty("java.rmi.server.hostname", "localhost");
 
 		Server();
 		Thread.sleep(1);
 
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				int n = 1000;
+				long start = 0;
+				long sum = 0;
+
+				for (int i = 0; i < n; i++) {
+					start = System.currentTimeMillis();
+					Client();
+					sum += System.currentTimeMillis() - start;
+				}
+				System.out.println("Czas wysylania: " + n + " : " + (sum / 1000.0) + " s");
+				System.out.println("Czas sredni wyslania: " + (sum / n) + "ms");
+			}
+		}).start();
+		Thread.sleep(100000);
 		new Thread(new Runnable() {
 
 			@Override
@@ -69,11 +87,9 @@ public class Main {
 			Registry registry = LocateRegistry.getRegistry(listSocket.get(0));
 			LamportInt stub = (LamportInt) registry.lookup("LamportInt");
 			obj.incrementTime();
-			System.out.println(obj.getTime());
 			Message response = stub.recive(obj.getTime());
 
 			obj.setTime(response.getTimestep());
-			System.out.println("response: " + response);
 
 		} catch (Exception e) {
 			System.err.println("Client exception: " + e.toString());

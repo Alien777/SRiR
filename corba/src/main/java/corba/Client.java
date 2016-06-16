@@ -1,8 +1,6 @@
 package corba;
 
- 
 import org.omg.CosNaming.*;
-
 
 import LamportApp.*;
 
@@ -22,15 +20,12 @@ public class Client {
 			// part of the Interoperable naming Service.
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
-			// resolve the Object Reference in Naming
-			System.out.println("Send:"+mylamport.getTime());
 			String name = "Lamport";
 			lamport = LamportIntHelper.narrow(ncRef.resolve_str(name));
 
-			
 			mylamport.setTime(Math.max(mylamport.getTime(), lamport.receive(mylamport.getTime())) + 1);
-			System.out.println("Recv:"+mylamport.getTime());
-			//helloImpl.shutdown();
+
+			// helloImpl.shutdown();
 
 		} catch (Exception e) {
 			System.out.println("ERROR : " + e);

@@ -27,6 +27,37 @@ public class Main {
 				}
 			}
 		}).start();
+		
+		Thread.sleep(500);
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				int n = 500;
+				long start = 0;
+				long sum = 0;
+				 
+		 
+				Message mes = new Message("");
+				for (int i = 0; i < n; i++) {
+					start = System.currentTimeMillis();
+					try {
+						obj.send(new Socket("localhost",port), mes);
+						Thread.sleep(2);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					sum += System.currentTimeMillis() - start;
+				}
+				System.out.println("Czas wysylania: " + n + " : " + (sum / 1000.0) + " s");
+				System.out.println("Czas sredni wyslania: " + (sum / n) + "ms");
+			}
+		}).start();
+		Thread.sleep(100000);
 
 		AtomicInteger a = new AtomicInteger(0);
 		new Thread(new Runnable() {

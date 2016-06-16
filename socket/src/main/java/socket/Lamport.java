@@ -35,6 +35,7 @@ public class Lamport {
 			@Override
 			public void run() {
 				try {
+					System.out.println("Send :" +getTime());
 					OutputStream os = socket.getOutputStream();
 					ObjectOutputStream oos = new ObjectOutputStream(os);
 					oos.writeObject(message);
@@ -60,10 +61,12 @@ public class Lamport {
 					is = socket.getInputStream();
 					ois = new ObjectInputStream(is);
 					Message m = (Message) ois.readObject();
-
+					
 					if (m != null) {
 						setTime(Math.max(m.getTimestep(), time.get()) + 1);
+						System.out.println("Recive :" +getTime());
 					}
+					
 
 				} catch (ClassNotFoundException | IOException e) {
 
